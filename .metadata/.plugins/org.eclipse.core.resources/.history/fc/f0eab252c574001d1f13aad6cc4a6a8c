@@ -1,0 +1,52 @@
+package com.te.lms.dto;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.te.lms.enums.EmployeeStatus;
+import com.te.lms.enums.Gender;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
+public class RegistrationDto {
+	
+	private String employeeId;
+	private String employeeName;
+	private LocalDate employeeDOJ;
+	private LocalDate employeeDOB;
+	
+	private String employeeEmail;
+	
+	private String bloodGroup;
+	private String designation;
+
+	private Gender gender;
+	private String employeeNationality;
+	private EmployeeStatus employeeStatus;
+
+	private SecondaryInfoDto secondaryInfo;
+	
+	private List<EducationDetailsDto> educationDetails=new ArrayList<EducationDetailsDto>();
+	
+	private List<AddressDetailsDto> addressDetails=new ArrayList<AddressDetailsDto>();
+	
+	private BankDetailsDto bankDetailsDto;
+	
+	private List<TechnicalSkillsDto> technicalSkills=new ArrayList<TechnicalSkillsDto>();
+	
+	private List<ExperienceDto> experience=new ArrayList<ExperienceDto>();
+
+	private List<ContactDto> contact=new ArrayList<ContactDto>();
+}

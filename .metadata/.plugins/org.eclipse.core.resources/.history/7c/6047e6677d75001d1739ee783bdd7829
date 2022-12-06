@@ -1,0 +1,10 @@
+package com.te.lms.dto;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
+public class SkillsDto {
+   private String skillName;
+}

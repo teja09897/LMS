@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.te.lms.dto.RegistrationDto"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.te.lms.dto.EducationDetailsDto"/>
+    <fullyQualifiedTypeName name="com.te.lms.dto.AddressDetailsDto"/>
+    <fullyQualifiedTypeName name="com.te.lms.entity.AddressDetails"/>
+    <fullyQualifiedTypeName name="com.te.lms.dto.ExperienceDto"/>
+    <fullyQualifiedTypeName name="com.te.lms.entity.Experience"/>
+    <fullyQualifiedTypeName name="com.te.lms.dto.TechnicalSkillsDto"/>
+    <fullyQualifiedTypeName name="com.te.lms.entity.TechnicalSkills"/>
+    <fullyQualifiedTypeName name="com.te.lms.dto.ContactDto"/>
+    <fullyQualifiedTypeName name="com.te.lms.entity.Contact"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.BeanUtils"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
+    <fullyQualifiedTypeName name="com.google.common.collect.Lists"/>
+    <fullyQualifiedTypeName name="com.te.lms.entity.Admin"/>
+    <fullyQualifiedTypeName name="com.te.lms.entity.AppUser"/>
+    <fullyQualifiedTypeName name="com.te.lms.entity.Roles"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.te.lms.entity.EducationDetails"/>
+</qualifiedTypeNameHistroy>

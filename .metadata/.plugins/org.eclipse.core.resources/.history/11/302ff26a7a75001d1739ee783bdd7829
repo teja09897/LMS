@@ -1,0 +1,17 @@
+package com.te.lms.entity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+public class Skills {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer sno;
+    
+    private String skillName;
+    
+    @ManyToOne
+    private Mentor mentor;
+}
