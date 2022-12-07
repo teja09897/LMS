@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.checkerframework.common.aliasing.qual.Unique;
 
@@ -26,14 +27,18 @@ import lombok.Setter;
 @Builder
 @Entity
 public class Mentor {
+	
+	private String mentorName;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-     private Integer id;
-     private String mentorName;
-     private String mentorId;
-     @Unique
-     private String mentorEmailId;
-     
-     @OneToMany(mappedBy = "mentor",cascade = CascadeType.ALL)
-     private List<Skills> skills=Lists.newArrayList();
+	private String mentorId;
+	@Unique
+	private String mentorEmailId;
+
+	@OneToMany(mappedBy = "mentor", cascade = CascadeType.ALL)
+	private List<Skills> skills = Lists.newArrayList();
+
+	@OneToOne(mappedBy = "mentor", cascade = CascadeType.ALL)
+	private Batch batch;
+	
+	private String status;
 }

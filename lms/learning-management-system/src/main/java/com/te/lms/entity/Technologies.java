@@ -29,7 +29,9 @@ import lombok.Setter;
 public class Technologies {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String technologyId;
+    private Integer technologyId;
+	
+	private String technologyName;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "map_technology_batch", joinColumns = @JoinColumn(name = "technology_fk"), inverseJoinColumns = @JoinColumn(name = "batch_fk"))

@@ -1,0 +1,23 @@
+
+‹
+java:S2293%"YReplace the type specification in this constructor call with the diamond operator ("<>").(øËà8çÅ›ÂÎ0H®	RMINORZ
+CODE_SMELL
+w	java:S112A"FDefine and throw a dedicated exception instead of using a generic one.(ÀÁ‹y8ï¥ÒÙÎ0HÙRMAJORZ
+CODE_SMELL
+Œ
+java:S2293/"YReplace the type specification in this constructor call with the diamond operator ("<>").(îßÊİ8ï¥ÒÙÎ0HÚRMINORZ
+CODE_SMELL
+}
+java:S1128"ERemove this unused import 'com.te.lms.response.RegistrationResponse'.(óØşøÿÿÿÿ8Ò„ ÚÎ0HşRMINORZ
+CODE_SMELL
+r
+java:S1128":Remove this unused import 'javax.management.Notification'.(š¸“­üÿÿÿÿ8úéµ×Î0HÆ
+RMINORZ
+CODE_SMELL
+}	java:S112("FDefine and throw a dedicated exception instead of using a generic one.(…¢ûûÿÿÿÿ8ƒóêÃÎ0H¸	RMAJORZ
+CODE_SMELL
+‘
+java:S2293?"YReplace the type specification in this constructor call with the diamond operator ("<>").(¿À‘çúÿÿÿÿ8ÿÏéÜÎ0H¥RMINORZ
+CODE_SMELL
+c
+java:S3655/"7Call "optEmpId.isPresent()" before accessing the value.(îßÊİ8ÿÏéÜÎ0H§RMAJORZBUG

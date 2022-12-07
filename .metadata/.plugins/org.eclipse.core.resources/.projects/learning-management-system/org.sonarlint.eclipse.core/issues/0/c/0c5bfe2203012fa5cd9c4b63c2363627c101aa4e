@@ -1,0 +1,9 @@
+
+l
+java:S2789P"@Methods with an "Optional" return type should never return null.(•πÔç8â∫∆‹Œ0HìRMAJORZBUG
+o
+java:S1854N"<Remove this useless assignment to local variable "findById".(∏‘¬Æ8⁄æÈ‹Œ0HúRMAJORZ
+CODE_SMELL
+`
+java:S1481N"-Remove this unused "findById" local variable.(∏‘¬Æ8⁄æÈ‹Œ0HùRMINORZ
+CODE_SMELL
