@@ -49,4 +49,8 @@ public class RegistrationDto {
 	private List<ExperienceDto> experienceDto;
 
 	private List<ContactDto> contactDto;
+	
+	private String password;
+	
+	
 }

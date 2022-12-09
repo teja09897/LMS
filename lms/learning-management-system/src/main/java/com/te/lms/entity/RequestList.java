@@ -24,10 +24,8 @@ import lombok.Setter;
 @Builder
 @Entity
 public class RequestList {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	@Unique
 	private String employeeId;
 	private String employeeName;	
 	private Integer employeeYOP;	

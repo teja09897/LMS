@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -70,6 +71,8 @@ public class Employee {
 	@OneToMany(mappedBy = "employee",cascade = CascadeType.ALL)
 	private List<Contact> contact=new ArrayList<Contact>();
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Batch batch;
 	
 	
 }

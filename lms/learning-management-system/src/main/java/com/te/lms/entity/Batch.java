@@ -12,8 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.google.common.collect.Lists;
 import com.te.lms.enums.Status;
 
 import lombok.AllArgsConstructor;
@@ -30,8 +32,6 @@ import lombok.Setter;
 @Entity
 public class Batch {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     private String batchId;
     private String batchName;
     
@@ -40,12 +40,17 @@ public class Batch {
     private Mentor mentor;
     
     @ManyToMany(mappedBy = "batch",cascade = CascadeType.ALL)
-    private List<Technologies> technologies;
+    private List<Technologies> technologies=Lists.newArrayList();
     
     private LocalDate startDate;
     private LocalDate endDate;
     
     @Enumerated(EnumType.STRING)
     private Status status;
+    
+    private String status_;
+    
+    @OneToMany(mappedBy = "batch")
+    private List<Employee> employee=Lists.newArrayList();
     
 }

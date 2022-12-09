@@ -1,7 +1,7 @@
 package com.te.lms.enums;
 
 public enum EmployeeStatus {
-	ACTIVE("ACTIVE"),TERMINATED("TERMINATED"),ABSCONDED("ABSCONDED");
+	ACTIVE("ACTIVE"),TERMINATED("TERMINATED"),ABSCONDED("ABSCONDED"), INACTIVE("INACTIVE");
 	
 	private final String employeeStatus;
 

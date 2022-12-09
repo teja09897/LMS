@@ -1,0 +1,10 @@
+
+‰	java:S1163"RRename this field "status_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ò Ü¿ıÿÿÿÿ8‘ÆëÎ0HŠ$RMINORZ
+CODE_SMELL
+p
+java:S1128"=Remove this unused import 'javax.persistence.GenerationType'.(ı÷õ¡8Ş°ÍìÎ0H‹$RMINORZ
+CODE_SMELL
+p
+java:S1128
+"=Remove this unused import 'javax.persistence.GeneratedValue'.(¤®À‚8Ş°ÍìÎ0H$RMINORZ
+CODE_SMELL

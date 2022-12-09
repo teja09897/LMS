@@ -22,7 +22,7 @@ public class MailNotifications {
 		return notify;
 	}
 
-	public void sendEmail(String message, String emailId, String subject) {
+	public void sendEmail(String message, String employeeEmail, String subject) {
 
 		String host = "smtp.gmail.com";
 
@@ -44,8 +44,8 @@ public class MailNotifications {
 
 		MimeMessage m = new MimeMessage(session);
 		try {
-			m.setFrom("demoemail256.a@gmail.com");
-			m.addRecipient(Message.RecipientType.TO, new InternetAddress(emailId));
+			m.setFrom("tejavasa0987@gmail.com");
+			m.addRecipient(Message.RecipientType.TO, new InternetAddress(employeeEmail));
 			m.setSubject(subject);
 			m.setText(message);
 			Transport.send(m);
