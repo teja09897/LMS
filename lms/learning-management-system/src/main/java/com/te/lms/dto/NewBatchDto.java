@@ -3,14 +3,7 @@ package com.te.lms.dto;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
-
 import com.google.common.collect.Lists;
-import com.te.lms.entity.Mentor;
-import com.te.lms.entity.Technologies;
 import com.te.lms.enums.Status;
 
 import lombok.AllArgsConstructor;

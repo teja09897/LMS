@@ -1,0 +1,69 @@
+package com.te.lms.controller;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class UpdateMentorDto {
+
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	@Test
+	void testBuilder() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testUpdateMentorDto() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testUpdateMentorDtoStringStringStringListOfSkillsDto() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetMentorName() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetEmployeeId() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetEmployeeEmailId() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetSkillsDtos() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetMentorName() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetEmployeeId() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetEmployeeEmailId() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetSkillsDtos() {
+		fail("Not yet implemented");
+	}
+
+}

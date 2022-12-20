@@ -1,0 +1,151 @@
+package com.te.lms.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.te.lms.dto.ApproveDto;
+import com.te.lms.dto.MessageDto;
+import com.te.lms.dto.NewBatchDto;
+import com.te.lms.dto.NewMentorDto;
+import com.te.lms.dto.RejectDto;
+import com.te.lms.exception.RegistrationFailedException;
+import com.te.lms.mailssender.MailNotifications;
+import com.te.lms.response.GeneralResponse;
+import com.te.lms.service.AdminService;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@RestController
+@RequestMapping(path = "/admin")
+public class AdminController {
+	private final AdminService adminService;
+	private final MailNotifications mailNotifications;
+
+	@PostMapping(path = "/register/mentor")
+	public GeneralResponse<String> registerMentor(@RequestBody NewMentorDto mentorDto) {
+		Optional<String> optEmp = adminService.registerMentor(mentorDto);
+		if (optEmp.isPresent()) {
+			String message = "Hello" + mentorDto.getMentorName() + "your role has been updates as an mentor";
+			String subject = "congratulations";
+			String emailId = mentorDto.getMentorEmailId();
+			mailNotifications.sendEmail(message, emailId, subject);
+			return new GeneralResponse<String>("mentor has been registered successfully", optEmp.get());
+		}
+
+		throw new RegistrationFailedException("Unable to register the mentor");
+	}
+
+	@PutMapping(path = "/update/mentor")
+	public GeneralResponse<String> updateMentor(@RequestBody NewMentorDto newMentorDto) {
+		Optional<String> optEmpId = adminService.updateMentor(newMentorDto);
+		if (optEmpId.isPresent()) {
+			return new GeneralResponse<String>("Mentor details updated successfully", optEmpId.get());
+		}
+		throw new RuntimeException("Unable to update Mentor deatails ");
+	}
+
+	@PutMapping(path = "/delete/mentor/{mentorId}")
+	public GeneralResponse<String> deleteMentor(@PathVariable String mentorId) {
+		Optional<String> optEmpId = adminService.deleteMentor(mentorId);
+		if (optEmpId.isPresent()) {
+			return new GeneralResponse<String>("mentor deleted successfully", mentorId);
+		}
+		throw new RuntimeException("unable to delete mentor");
+	}
+
+	@GetMapping(path = "/search/mentor/{mentorId}")
+	public GeneralResponse<Object> searchMentor(@PathVariable("mentorId") String mentorId) {
+		Optional<Object> mentorFromDb = adminService.read(mentorId);
+		return new GeneralResponse<Object>("Fetching mentor details successfully", mentorFromDb.get());
+	}
+
+	@GetMapping(path = "/list/mentor")
+	public GeneralResponse<List<NewMentorDto>> batchMentor() {
+		Optional<List<NewMentorDto>> optionalMentorList = adminService.mentorList();
+		return new GeneralResponse<List<NewMentorDto>>("Mentors List", optionalMentorList.get());
+
+	}
+
+//====================================================================================================================
+	@PostMapping(path = "/register/batch")
+	public GeneralResponse<String> createBatch(@RequestBody NewBatchDto newBatchDto) {
+		Optional<String> optBatchId = adminService.createBatch(newBatchDto);
+		if (optBatchId.isPresent()) {
+			return new GeneralResponse<String>("A New Batch has been created", newBatchDto.getBatchId());
+		}
+		throw new RegistrationFailedException("Unable to create a new batch");
+	}
+
+	@PutMapping(path = "/delete/batch/{batchId}")
+	public GeneralResponse<String> deleteBatch(@PathVariable("batchId") String batchId) {
+		Optional<String> optBatchId = adminService.deleteBatchDetails(batchId);
+		if (optBatchId.isPresent()) {
+			return new GeneralResponse<String>("Batch details deleted successfully", null);
+		}
+		throw new RuntimeException("unable to delete Batch Details");
+	}
+
+	@PutMapping(path = "/update/batch")
+	public GeneralResponse<String> updateBatch(@RequestBody NewBatchDto newBatchDto) {
+		Optional<String> optBatch = adminService.updateBatch(newBatchDto);
+		if (optBatch.isPresent()) {
+			return new GeneralResponse<String>("Batch details updated successfully", null);
+		}
+		throw new RuntimeException("Unable to update Batch deatails ");
+	}
+
+	@GetMapping(path = "/search/batch/{batchId}")
+	public GeneralResponse<Object> searchBatch(@PathVariable("batchId") String batchId) {
+		Optional<Object> batchFromDb = adminService.readBatch(batchId);
+		return new GeneralResponse<Object>("Fetching Batch details successfylly", batchFromDb.get());
+	}
+
+	@GetMapping(path = "/list/batch")
+	public GeneralResponse<List<NewBatchDto>> batchList() {
+		Optional<List<NewBatchDto>> optionalBatchList = adminService.batchList();
+		return new GeneralResponse<List<NewBatchDto>>("Batch list", optionalBatchList.get());
+
+	}
+
+//==========================================================================================================================
+	@PostMapping(path = "/approve/employee/{employeeId}")
+	public GeneralResponse<String> approveEmployee(@PathVariable("employeeId") String employeeId,
+			@RequestBody ApproveDto approveDto) {
+		Optional<MessageDto> messageDto = adminService.approve(employeeId, approveDto);
+		if (messageDto.isPresent()) {
+			String msg = messageDto.get().getMessage();
+			String subject = "WELCOME TO TechnoElevate";
+			String emilId = messageDto.get().getEmployeeEmail();
+			mailNotifications.sendEmail(msg, emilId, subject);
+			return new GeneralResponse<String>("approved", emilId);
+
+		}
+		throw new RuntimeException("unable to approve");
+
+	}
+
+	@PostMapping(path = "/reject/employee/{employeeId}")
+	public GeneralResponse<String> rejectEmployee(@PathVariable("employeeId") String employeeId,
+			@RequestBody RejectDto rejectDto) {
+		Optional<MessageDto> messageDto = adminService.reject(employeeId, rejectDto);
+		if (messageDto.isPresent()) {
+			String msg = messageDto.get().getMessage();
+			String subject = "Reject mail";
+			String emilId = messageDto.get().getEmployeeEmail();
+			mailNotifications.sendEmail(msg, emilId, subject);
+			return new GeneralResponse<String>("REJECTED",emilId);
+
+		}
+		throw new RuntimeException("unable to approve");
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.te.lms.exception.handler;
+
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.google.common.collect.Maps;
+import com.te.lms.exception.RegistrationFailedException;
+
+@RestControllerAdvice
+public class LmsExceptionHandler {
+	
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(RegistrationFailedException.class)
+	public Map<String, String> handler(RegistrationFailedException ex) {
+		Map<String, String> map=Maps.newHashMap();
+		map.put("message", ex.getMessage());
+		return map;
+	}
+}

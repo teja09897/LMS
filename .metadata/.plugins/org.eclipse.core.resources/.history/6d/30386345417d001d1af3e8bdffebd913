@@ -1,0 +1,66 @@
+package com.te.lms.controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Optional;
+
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.mockito.InjectMocks;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.te.lms.dto.MessageDto;
+import com.te.lms.dto.NewMentorDto;
+import com.te.lms.response.GeneralResponse;
+import com.te.lms.service.AdminService;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+class AdminControllerTest2 {
+	
+	@MockBean
+	private AdminService adminService;
+	
+	@Autowired
+	private MockMvc mockMvc;
+	
+	private ObjectMapper objectMapper = new ObjectMapper();
+	
+	@InjectMocks
+	private AdminController adminController;
+
+	@BeforeEach
+	void setUp(){
+		mockMvc = MockMvcBuilders.standaloneSetup(adminController).build();
+	}
+
+	@Test
+	void testRegisterMentor() throws Exception {
+		NewMentorDto mentorDto = NewMentorDto.builder().mentorEmailId("a@a.com").mentorEmailId("Ty03")
+				.mentorName("vny").build();
+		
+		MessageDto messageDto = MessageDto.builder().employeeEmail("a@a").message("message").build();
+		Mockito.when(adminService.registerMentor(Mockito.any()))
+				.thenReturn(Optional.ofNullable(mentorDto.getMentorName()));
+		String contentAsString = mockMvc
+				.perform(MockMvcRequestBuilders.post("/admin/register/mentor")
+						.contentType(MediaType.APPLICATION_JSON_VALUE)
+						.content(objectMapper.writeValueAsString(mentorDto)))
+				.andExpect(MockMvcResultMatchers.status().isOk()).andReturn().getResponse().getContentAsString();
+		GeneralResponse<String> readValue = objectMapper.readValue(contentAsString, GeneralResponse.class);
+		assertEquals(readValue.getMessage(), "mentor has been registered successfully");
+		assertEquals(readValue.getData(), mentorDto.getMentorName());
+
+	}
+
+}

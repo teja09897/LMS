@@ -3,7 +3,7 @@ package com.te.lms.controller;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +17,15 @@ import com.te.lms.dto.MessageDto;
 import com.te.lms.dto.NewBatchDto;
 import com.te.lms.dto.NewMentorDto;
 import com.te.lms.dto.RejectDto;
-import com.te.lms.entity.Employee;
-import com.te.lms.entity.Mentor;
+import com.te.lms.dto.RequestListDto;
+import com.te.lms.exception.EmployeeCanNotBeApprovedException;
+import com.te.lms.exception.NoDataFoundInTheListException;
+import com.te.lms.exception.RegistrationFailedException;
+import com.te.lms.exception.UnableToDeleteBatchException;
+import com.te.lms.exception.UnableToDeleteMentorException;
+import com.te.lms.exception.UnableToUpdateBatchException;
+import com.te.lms.exception.UnableToUpdateMentorException;
 import com.te.lms.mailssender.MailNotifications;
-import com.te.lms.repository.MentorRepository;
 import com.te.lms.response.GeneralResponse;
 import com.te.lms.service.AdminService;
 
@@ -44,25 +49,25 @@ public class AdminController {
 			return new GeneralResponse<String>("mentor has been registered successfully", optEmp.get());
 		}
 
-		throw new RuntimeException("Unable to register the mentor");
+		throw new RegistrationFailedException("Unable to register the mentor");
 	}
 
 	@PutMapping(path = "/update/mentor")
-	public GeneralResponse<String> updateMentor(@RequestBody NewMentorDto newMentorDto) {
+	public GeneralResponse<String> updateMentor(@RequestBody NewMentorDto newMentorDto) throws UnableToUpdateMentorException {
 		Optional<String> optEmpId = adminService.updateMentor(newMentorDto);
 		if (optEmpId.isPresent()) {
 			return new GeneralResponse<String>("Mentor details updated successfully", optEmpId.get());
 		}
-		throw new RuntimeException("Unable to update Mentor deatails ");
+		throw new UnableToUpdateMentorException("Unable to update Mentor deatails ");
 	}
 
 	@PutMapping(path = "/delete/mentor/{mentorId}")
-	public GeneralResponse<String> deleteMentor(@PathVariable String mentorId) {
+	public GeneralResponse<String> deleteMentor(@PathVariable String mentorId) throws UnableToDeleteMentorException {
 		Optional<String> optEmpId = adminService.deleteMentor(mentorId);
 		if (optEmpId.isPresent()) {
 			return new GeneralResponse<String>("mentor deleted successfully", mentorId);
 		}
-		throw new RuntimeException("unable to delete mentor");
+		throw new UnableToDeleteMentorException("unable to delete mentor");
 	}
 
 	@GetMapping(path = "/search/mentor/{mentorId}")
@@ -72,10 +77,12 @@ public class AdminController {
 	}
 
 	@GetMapping(path = "/list/mentor")
-	public GeneralResponse<List<NewMentorDto>> batchMentor() {
+	public GeneralResponse<List<NewMentorDto>> batchMentor() throws NoDataFoundInTheListException {
 		Optional<List<NewMentorDto>> optionalMentorList = adminService.mentorList();
-		return new GeneralResponse<List<NewMentorDto>>("Mentors List", optionalMentorList.get());
-
+		if (optionalMentorList.isPresent()) {
+			return new GeneralResponse<List<NewMentorDto>>("Mentors List", optionalMentorList.get());
+		}
+       throw new NoDataFoundInTheListException("List is Empty");
 	}
 
 //====================================================================================================================
@@ -85,25 +92,25 @@ public class AdminController {
 		if (optBatchId.isPresent()) {
 			return new GeneralResponse<String>("A New Batch has been created", newBatchDto.getBatchId());
 		}
-		throw new RuntimeException("Unable to create a new batch");
+		throw new RegistrationFailedException("Unable to create a new batch");
 	}
 
 	@PutMapping(path = "/delete/batch/{batchId}")
-	public GeneralResponse<String> deleteBatch(@PathVariable("batchId") String batchId) {
+	public GeneralResponse<String> deleteBatch(@PathVariable("batchId") String batchId) throws UnableToDeleteBatchException {
 		Optional<String> optBatchId = adminService.deleteBatchDetails(batchId);
 		if (optBatchId.isPresent()) {
 			return new GeneralResponse<String>("Batch details deleted successfully", null);
 		}
-		throw new RuntimeException("unable to delete Batch Details");
+		throw new UnableToDeleteBatchException("unable to delete Batch Details");
 	}
 
 	@PutMapping(path = "/update/batch")
-	public GeneralResponse<String> updateBatch(@RequestBody NewBatchDto newBatchDto) {
+	public GeneralResponse<String> updateBatch(@RequestBody NewBatchDto newBatchDto) throws UnableToUpdateBatchException {
 		Optional<String> optBatch = adminService.updateBatch(newBatchDto);
 		if (optBatch.isPresent()) {
 			return new GeneralResponse<String>("Batch details updated successfully", null);
 		}
-		throw new RuntimeException("Unable to update Batch deatails ");
+		throw new UnableToUpdateBatchException("Unable to update Batch deatails ");
 	}
 
 	@GetMapping(path = "/search/batch/{batchId}")
@@ -113,10 +120,12 @@ public class AdminController {
 	}
 
 	@GetMapping(path = "/list/batch")
-	public GeneralResponse<List<NewBatchDto>> batchList() {
+	public GeneralResponse<List<NewBatchDto>> batchList() throws NoDataFoundInTheListException {
 		Optional<List<NewBatchDto>> optionalBatchList = adminService.batchList();
-		return new GeneralResponse<List<NewBatchDto>>("Batch list", optionalBatchList.get());
-
+		if (optionalBatchList.isPresent()) {
+			return new GeneralResponse<List<NewBatchDto>>("Batch list", optionalBatchList.get());
+		}
+      throw new NoDataFoundInTheListException("List is Empty");
 	}
 
 //==========================================================================================================================
@@ -132,7 +141,7 @@ public class AdminController {
 			return new GeneralResponse<String>("approved", emilId);
 
 		}
-		throw new RuntimeException("unable to approve");
+		throw new EmployeeCanNotBeApprovedException("unable to approve");
 
 	}
 
@@ -148,7 +157,17 @@ public class AdminController {
 			return new GeneralResponse<String>("REJECTED",emilId);
 
 		}
-		throw new RuntimeException("unable to approve");
+		throw new EmployeeCanNotBeApprovedException("unable to approve");
+	}
+	
+	@GetMapping(path = "/requestlist")
+	public ResponseEntity<List<RequestListDto>> getRequestList() throws NoDataFoundInTheListException { 
+		Optional<List<RequestListDto>> optEmployees = adminService.getRequestList();
+		if (optEmployees.isPresent()) {
+			return ResponseEntity.ok(optEmployees.get());
+		}
+		throw new NoDataFoundInTheListException("List is Empty");
+
 	}
 
 }

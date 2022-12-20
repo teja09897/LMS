@@ -1,0 +1,36 @@
+package com.te.lms.service.implementation;
+
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.te.lms.repository.MentorRepository;
+import com.te.lms.service.AdminService;
+
+@SpringBootTest
+class AdminServiceImplTest {
+	
+	@InjectMocks
+	private AdminService  adminService;
+
+	@Mock
+	private MentorRepository mentorRepository;
+	
+    
+	
+	@BeforeEach
+	void set() {
+		mockMvc=
+	}
+	
+	
+	@DisplayName("junit test for ")
+	@Test
+	private void testRegisterMentor() {
+
+	}
+
+}

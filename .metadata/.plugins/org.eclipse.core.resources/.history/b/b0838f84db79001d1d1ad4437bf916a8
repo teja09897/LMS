@@ -1,0 +1,18 @@
+package com.te.lms;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.util.AssertionErrors;
+
+
+@SpringBootTest
+class LearningManagementSystemApplicationTests {
+	
+	@Test
+	void contextLoads() {
+		String a="3";
+		String b="2";
+		AssertionErrors.assertEquals("maybe pass", a, b);
+	}
+
+}

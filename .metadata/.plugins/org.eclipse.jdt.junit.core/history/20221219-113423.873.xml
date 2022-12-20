@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AdminControllerTest" project="learning-management-system" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="com.te.lms.controller.AdminControllerTest" time="11.514" displayname="AdminControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]">
+    <testcase name="testRegisterMentor" classname="com.te.lms.controller.AdminControllerTest" time="11.397" displayname="testRegisterMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testRegisterMentor()]"/>
+    <testcase name="testDeleteBatch" classname="com.te.lms.controller.AdminControllerTest" time="0.04" displayname="testDeleteBatch()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testDeleteBatch()]"/>
+    <testcase name="testUpdateBatch" classname="com.te.lms.controller.AdminControllerTest" time="0.039" displayname="testUpdateBatch()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testUpdateBatch()]"/>
+    <testcase name="testUpdateMentor" classname="com.te.lms.controller.AdminControllerTest" time="0.016" displayname="testUpdateMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testUpdateMentor()]"/>
+    <testcase name="testRegisterBatch" classname="com.te.lms.controller.AdminControllerTest" time="0.022" displayname="testRegisterBatch()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testRegisterBatch()]"/>
+  </testsuite>
+</testrun>

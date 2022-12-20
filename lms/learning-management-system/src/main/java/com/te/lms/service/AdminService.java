@@ -8,7 +8,7 @@ import com.te.lms.dto.MessageDto;
 import com.te.lms.dto.NewBatchDto;
 import com.te.lms.dto.NewMentorDto;
 import com.te.lms.dto.RejectDto;
-import com.te.lms.entity.Mentor;
+import com.te.lms.dto.RequestListDto;
 
 public interface AdminService {
 
@@ -35,6 +35,8 @@ public interface AdminService {
 	Optional<List<NewMentorDto>> mentorList();
 
 	Optional<MessageDto> reject(String employeeId, RejectDto rejectDto);
+
+	Optional<List<RequestListDto>> getRequestList();
 
 
 

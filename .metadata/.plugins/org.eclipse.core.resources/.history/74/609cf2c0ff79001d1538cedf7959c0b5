@@ -1,0 +1,25 @@
+package com.te.lms.service.implementation;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import com.te.lms.repository.MentorRepository;
+import com.te.lms.service.AdminService;
+
+class AdminServiceImplTest {
+	
+	@Autowired
+	private AdminService  adminService;
+
+	@MockBean
+	private MentorRepository mentorRepository;
+	
+	public void readMentorById() {
+		
+	}
+
+}

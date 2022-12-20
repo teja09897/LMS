@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AdminControllerTest" project="learning-management-system" tests="9" started="9" failures="0" errors="0" ignored="0">
+  <testsuite name="com.te.lms.controller.AdminControllerTest" time="0.589" displayname="AdminControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]">
+    <testcase name="testRegisterMentor" classname="com.te.lms.controller.AdminControllerTest" time="0.4" displayname="testRegisterMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testRegisterMentor()]"/>
+    <testcase name="testDeleteBatch" classname="com.te.lms.controller.AdminControllerTest" time="0.045" displayname="testDeleteBatch()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testDeleteBatch()]"/>
+    <testcase name="testGetBatchDetails" classname="com.te.lms.controller.AdminControllerTest" time="0.019" displayname="testGetBatchDetails()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testGetBatchDetails()]"/>
+    <testcase name="testUpdateBatch" classname="com.te.lms.controller.AdminControllerTest" time="0.018" displayname="testUpdateBatch()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testUpdateBatch()]"/>
+    <testcase name="testUpdateMentor" classname="com.te.lms.controller.AdminControllerTest" time="0.011" displayname="testUpdateMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testUpdateMentor()]"/>
+    <testcase name="testDeleteMentor" classname="com.te.lms.controller.AdminControllerTest" time="0.012" displayname="testDeleteMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testDeleteMentor()]"/>
+    <testcase name="testRegisterBatch" classname="com.te.lms.controller.AdminControllerTest" time="0.014" displayname="testRegisterBatch()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testRegisterBatch()]"/>
+    <testcase name="testGetMentor" classname="com.te.lms.controller.AdminControllerTest" time="0.013" displayname="testGetMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testGetMentor()]"/>
+    <testcase name="testRegisterMentor_Returns400" classname="com.te.lms.controller.AdminControllerTest" time="0.057" displayname="testRegisterMentor_Returns400()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testRegisterMentor_Returns400()]"/>
+  </testsuite>
+</testrun>

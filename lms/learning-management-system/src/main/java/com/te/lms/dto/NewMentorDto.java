@@ -3,7 +3,6 @@ package com.te.lms.dto;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.te.lms.entity.Technologies;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

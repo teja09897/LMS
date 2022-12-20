@@ -1,16 +1,16 @@
 
 Œ
-java:S2293E"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚›íÇ8ƒÐ˜›Î0H»%RMINORZ
+java:S22939"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚ùˆç8óÒƒ²Î0HÜ+RMINORZ
 CODE_SMELL
 Œ
-java:S22939"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚ùˆç8óÒƒ²Î0H½%RMINORZ
-CODE_SMELL
-Œ
-java:S2293<"YReplace the type specification in this constructor call with the diamond operator ("<>").(šÐËý8ƒÐ˜›Î0H¿%RMINORZ
+java:S2293B"YReplace the type specification in this constructor call with the diamond operator ("<>").(äðä¶8ƒÐ˜›Î0Hâ+RMINORZ
 CODE_SMELL
 ‘
-java:S2293H"YReplace the type specification in this constructor call with the diamond operator ("<>").(µùÕÆûÿÿÿÿ8ƒÐ˜›Î0HÁ%RMINORZ
+java:S2293H"YReplace the type specification in this constructor call with the diamond operator ("<>").(µùÕÆûÿÿÿÿ8ƒÐ˜›Î0Hà+RMINORZ
 CODE_SMELL
 Œ
-java:S2293B"YReplace the type specification in this constructor call with the diamond operator ("<>").(äðä¶8ƒÐ˜›Î0HÃ%RMINORZ
+java:S2293E"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚›íÇ8ƒÐ˜›Î0HÞ+RMINORZ
+CODE_SMELL
+Œ
+java:S2293<"YReplace the type specification in this constructor call with the diamond operator ("<>").(šÐËý8ƒÐ˜›Î0HÚ+RMINORZ
 CODE_SMELL

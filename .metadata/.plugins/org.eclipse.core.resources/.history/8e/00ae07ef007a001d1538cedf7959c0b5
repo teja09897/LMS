@@ -1,0 +1,28 @@
+package com.te.lms.service.implementation;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import com.te.lms.entity.Mentor;
+import com.te.lms.repository.MentorRepository;
+import com.te.lms.service.AdminService;
+
+class AdminServiceImplTest {
+	
+	@Autowired
+	private AdminService  adminService;
+
+	@MockBean
+	private MentorRepository mentorRepository;
+	
+	public void testreadMentorById() {
+		String mentorName="vijay";
+		Optional<Object> mentorId = adminService.read("MTR01");
+		assertEquals(mentorName, mentorId.get());
+	}
+
+}

@@ -1,19 +1,19 @@
 
-m
-java:S1128":Remove this unused import 'javax.persistence.CascadeType'.( ì¤Ê8ÍÌçØÎ0H´ RMINORZ
-CODE_SMELL
 k
-java:S1128"9Remove this unused import 'javax.persistence.ManyToMany'.(Àğ½8ÍÌçØÎ0H¶ RMINORZ
+java:S1128"9Remove this unused import 'javax.persistence.ManyToMany'.(Àğ½8ÍÌçØÎ0HÌ)RMINORZ
 CODE_SMELL
 j
-java:S1128	"7Remove this unused import 'javax.persistence.OneToOne'.(Ø½ïâ8ÍÌçØÎ0H¸ RMINORZ
-CODE_SMELL
-n
-java:S1128";Remove this unused import 'com.te.lms.entity.Technologies'.(‰“ƒ³8Ûñ¾ÙÎ0Hº RMINORZ
+java:S1128	"7Remove this unused import 'javax.persistence.OneToOne'.(Ø½ïâ8ÍÌçØÎ0HÎ)RMINORZ
 CODE_SMELL
 h
-java:S1128"5Remove this unused import 'com.te.lms.entity.Mentor'.(’á³8›öïØÎ0H¼ RMINORZ
+java:S1128"5Remove this unused import 'com.te.lms.entity.Mentor'.(’á³8›öïØÎ0HĞ)RMINORZ
+CODE_SMELL
+m
+java:S1128":Remove this unused import 'javax.persistence.CascadeType'.( ì¤Ê8ÍÌçØÎ0HÒ)RMINORZ
+CODE_SMELL
+n
+java:S1128";Remove this unused import 'com.te.lms.entity.Technologies'.(‰“ƒ³8Ûñ¾ÙÎ0HÔ)RMINORZ
 CODE_SMELL
 l
-java:S1128"9Remove this unused import 'javax.persistence.JoinColumn'.(´Å¼á8ÍÌçØÎ0H¾ RMINORZ
+java:S1128"9Remove this unused import 'javax.persistence.JoinColumn'.(´Å¼á8ÍÌçØÎ0HÖ)RMINORZ
 CODE_SMELL

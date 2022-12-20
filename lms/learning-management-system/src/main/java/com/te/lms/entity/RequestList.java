@@ -3,11 +3,7 @@ package com.te.lms.entity;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.checkerframework.common.aliasing.qual.Unique;
 
 import com.te.lms.enums.Action;
 

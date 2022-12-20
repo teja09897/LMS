@@ -1,0 +1,66 @@
+package com.te.lms.controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Lists;
+import com.te.lms.dto.MessageDto;
+import com.te.lms.dto.NewMentorDto;
+import com.te.lms.dto.SkillsDto;
+import com.te.lms.response.RegistrationResponse;
+import com.te.lms.service.AdminService;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+class AdminControllerTest {
+	@Autowired
+	private MockMvc mockMvc;
+
+	@MockBean
+	private AdminService adminService;
+
+	@InjectMocks
+	private AdminController adminController;
+
+	@Autowired
+	private ObjectMapper objectMapper;
+
+	@Test
+	void testRegisterMentor() throws JsonProcessingException, UnsupportedEncodingException, Exception {
+		List<SkillsDto> skillsDtos=Lists.newArrayList();
+		SkillsDto skillsDto=new SkillsDto();
+		skillsDto.setSkillName("java");
+		skillsDtos.add(skillsDto);
+		NewMentorDto mentorDto=NewMentorDto.builder().mentorEmailId("ravi@gmail.com").mentorName("vijay").mentorId("TY13")
+				.skillsDto(skillsDtos).build();
+		MessageDto messageDto=MessageDto.builder().employeeEmail("ravi@gmail.com").message("message").build();
+		
+		Mockito.when(adminService.registerMentor(Mockito.any())).thenReturn(Optional.ofNullable(mentorDto.getMentorId()));
+		
+		String contentAsString=mockMvc.perform(MockMvcRequestBuilders.post("/admin/register/mentor").accept(MediaType.APPLICATION_JSON_VALUE)
+				                     .content(objectMapper.writeValueAsString(mentorDto))
+				                     .contentType(MediaType.APPLICATION_JSON_VALUE))
+				                 .andExpect(MockMvcResultMatchers.status().isOk()).andReturn().getResponse().getContentAsString();
+		
+		RegistrationResponse readValue = objectMapper.readValue(contentAsString, RegistrationResponse.class);
+		assertEquals("mentor got rwgistred successfully",readValue.getMessage());
+	}
+
+}

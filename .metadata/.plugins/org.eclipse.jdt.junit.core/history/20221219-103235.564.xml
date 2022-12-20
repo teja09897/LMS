@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AdminControllerTest" project="learning-management-system" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.te.lms.controller.AdminControllerTest" time="11.885" displayname="AdminControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]">
+    <testcase name="testRegisterMentor" classname="com.te.lms.controller.AdminControllerTest" time="11.837" displayname="testRegisterMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testRegisterMentor()]"/>
+    <testcase name="testRegisterBatch" classname="com.te.lms.controller.AdminControllerTest" time="0.048" displayname="testRegisterBatch()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testRegisterBatch()]"/>
+  </testsuite>
+</testrun>

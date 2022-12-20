@@ -1,0 +1,23 @@
+package com.te.lms.exception.handler;
+
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.google.common.collect.Maps;
+import com.te.lms.exception.RegistrationFailedException;
+
+@RestControllerAdvice
+public class LmsExceptionHandler {
+	
+	@ResponseStatus
+	@ExceptionHandler(RegistrationFailedException ex)
+	public Map<String, String> handler() {
+		Map<String, String> map=Maps.newHashMap();
+		map.put("message", ex.getMessage());
+		return map;
+	}
+
+}

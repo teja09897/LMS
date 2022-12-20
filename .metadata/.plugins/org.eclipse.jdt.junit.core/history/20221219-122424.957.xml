@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AdminControllerTest" project="learning-management-system" tests="7" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="com.te.lms.controller.AdminControllerTest" time="12.513" displayname="AdminControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]">
+    <testcase name="testRegisterMentor" classname="com.te.lms.controller.AdminControllerTest" time="12.341" displayname="testRegisterMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testRegisterMentor()]"/>
+    <testcase name="testDeleteBatch" classname="com.te.lms.controller.AdminControllerTest" time="0.042" displayname="testDeleteBatch()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testDeleteBatch()]"/>
+    <testcase name="testUpdateBatch" classname="com.te.lms.controller.AdminControllerTest" time="0.033" displayname="testUpdateBatch()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testUpdateBatch()]"/>
+    <testcase name="testUpdateMentor" classname="com.te.lms.controller.AdminControllerTest" time="0.018" displayname="testUpdateMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testUpdateMentor()]"/>
+    <testcase name="testDeleteMentor" classname="com.te.lms.controller.AdminControllerTest" time="0.018" displayname="testDeleteMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testDeleteMentor()]"/>
+    <testcase name="testRegisterBatch" classname="com.te.lms.controller.AdminControllerTest" time="0.03" displayname="testRegisterBatch()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testRegisterBatch()]"/>
+    <testcase name="testGetMentor" classname="com.te.lms.controller.AdminControllerTest" time="0.031" displayname="testGetMentor()" uniqueid="[engine:junit-jupiter]/[class:com.te.lms.controller.AdminControllerTest]/[method:testGetMentor()]"/>
+  </testsuite>
+</testrun>

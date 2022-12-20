@@ -1,16 +1,10 @@
 package com.te.lms.service.implementation;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
 import java.util.Optional;
-import java.util.function.Function;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import com.google.common.collect.Lists;
 import com.te.lms.dto.ApproveDto;
@@ -18,6 +12,7 @@ import com.te.lms.dto.MessageDto;
 import com.te.lms.dto.NewBatchDto;
 import com.te.lms.dto.NewMentorDto;
 import com.te.lms.dto.RejectDto;
+import com.te.lms.dto.RequestListDto;
 import com.te.lms.dto.SkillsDto;
 import com.te.lms.dto.TechnologiesDto;
 import com.te.lms.entity.AppUser;
@@ -35,7 +30,6 @@ import com.te.lms.repository.EmployeeRepository;
 import com.te.lms.repository.MentorRepository;
 import com.te.lms.repository.RequestListRepository;
 import com.te.lms.repository.RolesRepository;
-import com.te.lms.response.GeneralResponse;
 import com.te.lms.service.AdminService;
 
 import lombok.RequiredArgsConstructor;
@@ -162,6 +156,8 @@ public class AdminServiceImpl implements AdminService {
 			technologies.add(technologiesEntity);
 			technologiesEntity.getBatch().add(batch);
 		}
+		Optional<Mentor> mentor=mentorRepository.findByMentorName(newBatchDto.getMentorName());
+		batch.setMentor(mentor.get());
 		batch.setTechnologies(technologies);
 		batch.setStatus_("ACTIVE");
 		batchRepository.save(batch);
@@ -304,6 +300,22 @@ public class AdminServiceImpl implements AdminService {
 		}
 		
 		throw new RuntimeException("not found");
+	}
+
+	
+	@Override
+	public Optional<List<RequestListDto>> getRequestList() {
+		List<RequestList> employees = requestListRepository.getList();
+		if (employees != null) {
+			List<RequestListDto> requestListDto = Lists.newArrayList();
+			for (RequestList requestsLists : employees) {
+				RequestListDto requestsListsDto2 = new RequestListDto();
+				BeanUtils.copyProperties(requestsLists, requestsListsDto2);
+				requestListDto.add(requestsListsDto2);
+			}
+			return Optional.ofNullable(requestListDto);
+		}
+		return null;
 	}
 
 }
